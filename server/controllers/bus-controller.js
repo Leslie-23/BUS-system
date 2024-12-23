@@ -1,15 +1,18 @@
 const Bus = require("../models/bus");
+const upload = require("../utils/uploads");
 
 // Add a new bus
 exports.addBus = async (req, res) => {
   try {
     const { name, busType, capacity, registrationNumber, isActive } = req.body;
+    const imagePath = req.file ? req.file.path : null;
     const newBus = new Bus({
       name,
       busType,
       capacity,
       registrationNumber,
       isActive,
+      image: imagePath,
     });
     await newBus.save();
     res.status(201).json({ message: "Bus added successfully", bus: newBus });

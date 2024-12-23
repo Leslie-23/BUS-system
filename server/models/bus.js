@@ -12,6 +12,11 @@ const busSchema = new mongoose.Schema(
     registrationNumber: { type: String, required: true, unique: true },
     routes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Route" }],
     isActive: { type: Boolean, default: true },
+    image: {
+      type: String,
+      required: false, // Optional
+    },
+
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   },

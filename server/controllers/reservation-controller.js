@@ -10,6 +10,14 @@ exports.addReservation = async (req, res) => {
     const bus = await Bus.findById(busId);
     if (!bus) return res.status(404).json({ message: "Bus not found" });
 
+    // Count current reservations for this bus
+    const currentReservations = await Reservation.countDocuments({ busId });
+
+    // Check if the bus is full
+    if (currentReservations >= bus.capacity) {
+      return res.status(400).json({ message: "Bus is fully booked" });
+    }
+
     const newReservation = new Reservation({
       busId,
       user,
@@ -17,12 +25,10 @@ exports.addReservation = async (req, res) => {
       reservationDate,
     });
     await newReservation.save();
-    res
-      .status(201)
-      .json({
-        message: "Reservation created successfully",
-        reservation: newReservation,
-      });
+    res.status(201).json({
+      message: "Reservation created successfully",
+      reservation: newReservation,
+    });
   } catch (error) {
     res
       .status(400)
@@ -44,12 +50,10 @@ exports.updateReservation = async (req, res) => {
     if (!updatedReservation)
       return res.status(404).json({ message: "Reservation not found" });
 
-    res
-      .status(200)
-      .json({
-        message: "Reservation updated successfully",
-        reservation: updatedReservation,
-      });
+    res.status(200).json({
+      message: "Reservation updated successfully",
+      reservation: updatedReservation,
+    });
   } catch (error) {
     res
       .status(400)
@@ -66,12 +70,10 @@ exports.deleteReservation = async (req, res) => {
     if (!deletedReservation)
       return res.status(404).json({ message: "Reservation not found" });
 
-    res
-      .status(200)
-      .json({
-        message: "Reservation deleted successfully",
-        reservation: deletedReservation,
-      });
+    res.status(200).json({
+      message: "Reservation deleted successfully",
+      reservation: deletedReservation,
+    });
   } catch (error) {
     res
       .status(400)
@@ -124,11 +126,9 @@ exports.getReservationsByDate = async (req, res) => {
       .status(200)
       .json({ message: "Reservations fetched successfully", reservations });
   } catch (error) {
-    res
-      .status(400)
-      .json({
-        message: "Error fetching reservations by date",
-        error: error.message,
-      });
+    res.status(400).json({
+      message: "Error fetching reservations by date",
+      error: error.message,
+    });
   }
 };

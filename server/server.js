@@ -8,8 +8,21 @@ const busRoutes = require("./routes/bus-routes");
 const routeRoutes = require("./routes/route-routes");
 const reservationRoutes = require("./routes/reservation-routes");
 const feedbackRoutes = require("./routes/feedback-routes");
+const uploadRouter = require("./routes/upload-routes");
+const cors = require("cors");
 
 const app = express();
+
+// Use CORS middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Allow only this origin
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+  })
+);
+
+app.options("*", cors());
 
 // Connect to MongoDB
 connectDB();
@@ -25,6 +38,10 @@ app.use("/api", busRoutes);
 app.use("/api", routeRoutes);
 app.use("/api", reservationRoutes);
 app.use("/api", feedbackRoutes);
+
+// static route for file upload
+app.use("/uploads", uploadRouter);
+app.use("/uploads", express.static("uploads"));
 
 // Home Route
 app.get("/", (req, res) => {
