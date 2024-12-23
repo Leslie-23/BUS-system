@@ -5,6 +5,7 @@ const { generateToken } = require("../utils/jwtAuth");
 // User Login
 exports.userLogin = async (req, res) => {
   const { email, password } = req.body;
+  // console.log("Request Body:", req.body); // --test flag
 
   try {
     const user = await User.findOne({ email });
@@ -13,6 +14,8 @@ exports.userLogin = async (req, res) => {
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
+    // console.log("Password Match:", isMatch); // --test flag
+
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }

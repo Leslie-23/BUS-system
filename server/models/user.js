@@ -12,12 +12,14 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    return next();
-  }
-  this.password = await bcrypt.hash(this.password, 10);
-  next();
-});
+// userSchema.pre("save", async function (next) {
+//   if (!this.isModified("password")) {
+//     return next();
+//   }
+//   this.password = await bcrypt.hash(this.password, 10);
+//   next();
+// });
+
+// if the above is uncommented. then remove the hashing logic from the controller --> might be modifying the password giving login issues
 
 module.exports = mongoose.model("User", userSchema);

@@ -37,12 +37,7 @@ function Login() {
           setCredentials({ ...credentials, password: e.target.value })
         }
       />
-      <button
-        className="bg-blue-500 text-white p-2 w-full"
-        onClick={handleLogin}
-      >
-        Login
-      </button>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 }
