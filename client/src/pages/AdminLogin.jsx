@@ -24,7 +24,7 @@ const AdminLogin = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/admins/login",
+        "http://localhost:5000/api/admin/login",
         {
           email,
           password,
@@ -111,7 +111,7 @@ const AdminLogin = () => {
             </Link>
           </Grid>
           <Grid item>
-            <Link href="/signup" variant="body2">
+            <Link href="/request-privileges" variant="body2">
               Request Privileges
             </Link>
           </Grid>

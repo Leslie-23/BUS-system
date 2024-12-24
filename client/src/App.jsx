@@ -28,9 +28,9 @@ const App = () => {
       <Route
         path="/admin-dashboard"
         element={
-          <PrivateRoute>
-            <AdminPanel />
-          </PrivateRoute>
+          // <PrivateRoute>
+          <AdminPanel />
+          // </PrivateRoute>
         }
       />
       <Route path="*" element={<ErrorPage />} />

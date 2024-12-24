@@ -12,12 +12,14 @@ const adminSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-adminSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    return next();
-  }
-  this.password = await bcrypt.hash(this.password, 10);
-  next();
-});
+// adminSchema.pre("save", async function (next) {
+//   if (!this.isModified("password")) {
+//     return next();
+//   }
+//   this.password = await bcrypt.hash(this.password, 10);
+//   next();
+// });
+
+//just as the user model the above would cause issues in logging in admins
 
 module.exports = mongoose.model("Admin", adminSchema);
