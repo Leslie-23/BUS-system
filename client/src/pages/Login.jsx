@@ -19,6 +19,7 @@ const Login = () => {
         }
       );
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userId", response.data.userId);
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
@@ -35,7 +36,7 @@ const Login = () => {
         textAlign: "center",
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom color="primary">
         Login
       </Typography>
       {error && <Alert severity="error">{error}</Alert>}
@@ -60,6 +61,8 @@ const Login = () => {
         fullWidth
         sx={{ mt: 2 }}
         onClick={handleLogin}
+        color="primary"
+        // disabled={!email ||!password}
       >
         Login
       </Button>

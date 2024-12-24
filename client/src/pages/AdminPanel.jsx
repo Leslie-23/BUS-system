@@ -111,8 +111,13 @@ const AdminPanel = () => {
   };
 
   return (
-    <Box>
-      <AppBar position="static">
+    <Box
+      sx={{
+        height: "100%",
+        width: "100%",
+      }}
+    >
+      <AppBar position="sticky" sx={{ mb: 3 }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Admin Panel
@@ -124,13 +129,13 @@ const AdminPanel = () => {
       </AppBar>
 
       <Box sx={{ padding: 2 }}>
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" gutterBottom color="primary">
           Welcome to the Admin Panel
         </Typography>
         <Grid container spacing={4}>
           {/* Buses Table */}
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom color="primary">
               Buses
             </Typography>
             <TableContainer component={Paper}>
@@ -181,7 +186,7 @@ const AdminPanel = () => {
 
           {/* Users Table */}
           <Grid item xs={12} md={6}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom color="primary">
               Users
             </Typography>
             <TableContainer component={Paper}>
@@ -229,7 +234,7 @@ const AdminPanel = () => {
             </TableContainer>
 
             <Grid item xs={12} md={6}>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom color="primary">
                 Admins
               </Typography>
               <TableContainer component={Paper}>

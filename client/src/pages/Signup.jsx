@@ -32,7 +32,7 @@ const Signup = () => {
         textAlign: "center",
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom color="primary">
         Sign Up
       </Typography>
       {error && <Alert severity="error">{error}</Alert>}

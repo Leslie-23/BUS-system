@@ -13,6 +13,7 @@ import axios from "axios";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [adminKey, setAdminKey] = useState("");
@@ -53,7 +54,7 @@ const AdminLogin = () => {
           marginTop: 8,
         }}
       >
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" gutterBottom color="primary">
           Admin Login
         </Typography>
         <form onSubmit={handleLogin} style={{ width: "100%" }}>
@@ -110,9 +111,15 @@ const AdminLogin = () => {
               Forgot password or Key?
             </Link>
           </Grid>
-          <Grid item>
+          <Grid item xs>
             <Link href="/request-privileges" variant="body2">
               Request Privileges
+            </Link>
+          </Grid>
+
+          <Grid item xs>
+            <Link onClick={() => navigate("/")} variant="body2">
+              User Login
             </Link>
           </Grid>
         </Grid>
