@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 const Profile = () => {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState("");
   const [loading, setLoading] = useState(true); // To handle loading state
   const [error, setError] = useState(null); // To handle errors
 
   useEffect(() => {
     // Get userId from localStorage (you could use context or state here too)
     const currentUserId = localStorage.getItem("userId");
+    // console.log(currentUserId);
 
     if (currentUserId) {
       const fetchProfile = async () => {
@@ -28,7 +29,8 @@ const Profile = () => {
           }
 
           const data = await response.json();
-          setProfile(data); // Update profile data
+          // console.log(data.user);
+          setProfile(data.user); // Update profile data
         } catch (error) {
           setError(error.message); // Set error if any
         } finally {

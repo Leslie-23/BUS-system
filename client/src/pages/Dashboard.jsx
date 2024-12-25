@@ -13,6 +13,15 @@ const Dashboard = () => {
   const handleViewProfile = () => {
     navigate("/profile");
   };
+  const handleUpdateProfile = () => {
+    navigate("/update-profile");
+  };
+  const handleDeleteProfile = () => {
+    navigate("/delete-profile");
+  };
+  const handleViewRoutes = () => {
+    navigate("/view-all-routes");
+  };
 
   return (
     <Box sx={{ textAlign: "center", mt: 10 }}>
@@ -29,6 +38,30 @@ const Dashboard = () => {
         onClick={handleViewProfile}
       >
         View Profile
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleUpdateProfile}
+      >
+        Update Profile
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleDeleteProfile}
+      >
+        Delete Profile
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleViewRoutes}
+      >
+        View Routes
       </Button>
     </Box>
   );

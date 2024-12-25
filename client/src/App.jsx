@@ -10,6 +10,9 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminPanel from "./pages/AdminPanel";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/Profile";
+import UpdateProfile from "./components/UpdateProfile";
+import DeleteProfile from "./components/DeleteProfile";
+import ViewRoutes from "./components/ViewRoutes";
 
 const theme = createTheme({
   palette: {
@@ -36,6 +39,9 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/update-profile" element={<UpdateProfile />} />
+        <Route path="/delete-profile" element={<DeleteProfile />} />
+        <Route path="/view-all-routes" element={<ViewRoutes />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}{" "}
         {/*unprotected route above. now using a wrapper to secure and ensure the authentication*/}
         <Route
