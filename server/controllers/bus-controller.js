@@ -86,15 +86,32 @@ exports.getBusById = async (req, res) => {
 
 // Get buses by type
 exports.getBusesByType = async (req, res) => {
+  // try {
+  //   const { busType } = req.params;
+  //   const buses = await Bus.find({ busType });
+  //   if (!buses.length)
+  //     return res.status(404).json({
+  //       message: "No buses of this type found",
+  //       // error: error.message,
+  //       // stack: error.stack,
+  //     });
+  //   res.status(200).json({ message: "Buses fetched successfully", buses });
+  // } catch (error) {
+  //   res.status(400).json({ message: "Error fetching buses", error });
+  // }
   try {
-    const { type } = req.params;
-    const buses = await Bus.find({ type });
-    if (!buses.length)
-      return res.status(404).json({ message: "No buses of this type found" });
-    res.status(200).json({ message: "Buses fetched successfully", buses });
+    const { busType } = req.params; // Get busType from path parameters
+    console.log(req.params);
+    const buses = await Bus.find({ busType });
+    console.log("Bus Type Requested:", { busType }); // Log incoming type
+    res.status(200).json({
+      message: "Buses fetched successfully",
+      buses,
+    });
   } catch (error) {
-    res
-      .status(400)
-      .json({ message: "Error fetching buses", error: error.message });
+    res.status(500).json({
+      message: "Error fetching buses",
+      error: error.message,
+    });
   }
 };

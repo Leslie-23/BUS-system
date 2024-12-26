@@ -55,7 +55,15 @@ const ViewRoutes = () => {
   );
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4 }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: "#f9f9f9", // Page background
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Typography variant="h4" component="h1" gutterBottom>
         View Routes
       </Typography>
@@ -67,7 +75,15 @@ const ViewRoutes = () => {
         fullWidth
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        sx={{ mb: 3 }}
+        // sx={{ mb: 3 }}
+        sx={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          backgroundColor: "#fff",
+          padding: "10px",
+          borderBottom: "1px solid #ddd",
+        }}
       />
 
       {loading && (

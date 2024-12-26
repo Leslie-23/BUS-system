@@ -13,6 +13,11 @@ import Profile from "./components/Profile";
 import UpdateProfile from "./components/UpdateProfile";
 import DeleteProfile from "./components/DeleteProfile";
 import ViewRoutes from "./components/ViewRoutes";
+import AddBus from "./components/AddBus";
+import ViewAllBuses from "./components/ViewAllBuses";
+import UpdateBus from "./components/UpdateBus";
+import ViewBusByType from "./components/ViewBusByType";
+import DeleteBus from "./components/DeleteBus";
 
 const theme = createTheme({
   palette: {
@@ -39,9 +44,15 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/view-admin-profile" element={<Profile />} />
         <Route path="/update-profile" element={<UpdateProfile />} />
         <Route path="/delete-profile" element={<DeleteProfile />} />
         <Route path="/view-all-routes" element={<ViewRoutes />} />
+        <Route path="/add-bus" element={<AddBus />} />
+        <Route path="/view-all-buses" element={<ViewAllBuses />} />
+        <Route path="/update-bus" element={<UpdateBus />} />
+        <Route path="/view-bus-by-type" element={<ViewBusByType />} />
+        <Route path="/delete-bus" element={<DeleteBus />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}{" "}
         {/*unprotected route above. now using a wrapper to secure and ensure the authentication*/}
         <Route

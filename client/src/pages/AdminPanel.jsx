@@ -109,6 +109,24 @@ const AdminPanel = () => {
     localStorage.removeItem("token"); // Clear admin token
     navigate("/admin-login"); // Redirect to admin login
   };
+  const handleAddBus = () => {
+    navigate("/add-bus");
+  };
+  const handleViewAllBuses = () => {
+    navigate("/view-all-buses");
+  };
+  const handleViewProfile = () => {
+    navigate("/view-admin-profile");
+  };
+  const handleUpdateBus = () => {
+    navigate("/update-bus");
+  };
+  const handleViewBusByType = () => {
+    navigate("/view-bus-by-type");
+  };
+  const handleDeleteBus = () => {
+    navigate("/delete-bus");
+  };
 
   return (
     <Box
@@ -116,6 +134,7 @@ const AdminPanel = () => {
         height: "100%",
         width: "100%",
       }}
+      maxWidth="lg"
     >
       <AppBar position="sticky" sx={{ mb: 3 }}>
         <Toolbar>
@@ -132,6 +151,54 @@ const AdminPanel = () => {
         <Typography variant="h5" gutterBottom color="primary">
           Welcome to the Admin Panel
         </Typography>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleAddBus}
+        >
+          Add Bus
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleViewAllBuses}
+        >
+          View all buses
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleUpdateBus}
+        >
+          Update Bus
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleViewProfile}
+        >
+          View Profile
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleViewBusByType}
+        >
+          View Bus by Type
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleDeleteBus}
+        >
+          Delete Bus
+        </Button>
         <Grid container spacing={4}>
           {/* Buses Table */}
           <Grid item xs={12} md={6}>
