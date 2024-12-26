@@ -18,6 +18,11 @@ import ViewAllBuses from "./components/ViewAllBuses";
 import UpdateBus from "./components/UpdateBus";
 import ViewBusByType from "./components/ViewBusByType";
 import DeleteBus from "./components/DeleteBus";
+import AddRoute from "./components/AddRoute";
+import ViewAllRoutes from "./components/ViewAllRoutes";
+import UpdateRoute from "./components/UpdateRoute";
+import DeleteRoute from "./components/DeleteRoute";
+import ViewRouteById from "./components/ViewRouteById";
 
 const theme = createTheme({
   palette: {
@@ -53,7 +58,13 @@ const App = () => {
         <Route path="/update-bus" element={<UpdateBus />} />
         <Route path="/view-bus-by-type" element={<ViewBusByType />} />
         <Route path="/delete-bus" element={<DeleteBus />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}{" "}
+        <Route path="/add-route" element={<AddRoute />} />
+        <Route path="/view-all-routes" element={<ViewAllRoutes />} />
+        {/*also hadling searching routes in the above*/}
+        <Route path="/update-route" element={<UpdateRoute />} />
+        <Route path="/delete-route" element={<DeleteRoute />} />
+        <Route path="/view-route-by-id" element={<ViewRouteById />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         {/*unprotected route above. now using a wrapper to secure and ensure the authentication*/}
         <Route
           path="/dashboard"

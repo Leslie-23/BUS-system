@@ -127,6 +127,21 @@ const AdminPanel = () => {
   const handleDeleteBus = () => {
     navigate("/delete-bus");
   };
+  const handleAddRoute = () => {
+    navigate("/add-route");
+  };
+  const handleViewAllRoutes = () => {
+    navigate("/view-all-routes");
+  };
+  const handleUpdateRoute = () => {
+    navigate("/update-route");
+  };
+  const handleDeleteRoute = () => {
+    navigate("/delete-route");
+  };
+  const handleViewRouteById = () => {
+    navigate("/view-route-by-id");
+  };
 
   return (
     <Box
@@ -198,6 +213,46 @@ const AdminPanel = () => {
           onClick={handleDeleteBus}
         >
           Delete Bus
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleAddRoute}
+        >
+          Add Route
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleViewAllRoutes}
+        >
+          View All Routes
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleViewRouteById}
+        >
+          View Route By Id
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleUpdateRoute}
+        >
+          Update Route
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleDeleteRoute}
+        >
+          Delete Route
         </Button>
         <Grid container spacing={4}>
           {/* Buses Table */}
