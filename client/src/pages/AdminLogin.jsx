@@ -118,7 +118,11 @@ const AdminLogin = () => {
           </Grid>
 
           <Grid item xs>
-            <Link onClick={() => navigate("/")} variant="body2">
+            <Link
+              sx={{ cursor: "pointer" }}
+              onClick={() => navigate("/")}
+              variant="body2"
+            >
               User Login
             </Link>
           </Grid>

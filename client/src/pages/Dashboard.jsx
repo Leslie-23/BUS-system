@@ -19,8 +19,17 @@ const Dashboard = () => {
   const handleDeleteProfile = () => {
     navigate("/delete-profile");
   };
-  const handleViewRoutes = () => {
+  const handleViewAllRoutes = () => {
     navigate("/view-all-routes");
+  };
+  const handleAddReservation = () => {
+    navigate("/add-reservation");
+  };
+  const handleViewAllReservation = () => {
+    navigate("/view-all-reservations");
+  };
+  const handleViewReservationById = () => {
+    navigate("/view-reservations-by-id");
   };
 
   return (
@@ -59,9 +68,33 @@ const Dashboard = () => {
         variant="contained"
         sx={{ mt: 2 }}
         color="primary"
-        onClick={handleViewRoutes}
+        onClick={handleViewAllRoutes}
       >
         View Routes
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleAddReservation}
+      >
+        Add Reservation
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleViewAllReservation}
+      >
+        View All Reservation
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleViewReservationById}
+      >
+        View Reservation By Id
       </Button>
     </Box>
   );

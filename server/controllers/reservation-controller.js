@@ -4,7 +4,7 @@ const Bus = require("../models/bus");
 // Add a new reservation
 exports.addReservation = async (req, res) => {
   try {
-    const { busId, user, seats, reservationDate } = req.body;
+    const { busId, routeId, userId, seatNumber, date } = req.body;
 
     // Ensure the bus exists
     const bus = await Bus.findById(busId);
@@ -20,9 +20,10 @@ exports.addReservation = async (req, res) => {
 
     const newReservation = new Reservation({
       busId,
-      user,
-      seats,
-      reservationDate,
+      routeId,
+      userId,
+      seatNumber,
+      date,
     });
     await newReservation.save();
     res.status(201).json({
@@ -30,9 +31,11 @@ exports.addReservation = async (req, res) => {
       reservation: newReservation,
     });
   } catch (error) {
-    res
-      .status(400)
-      .json({ message: "Error creating reservation", error: error.message });
+    res.status(400).json({
+      message: "Error creating reservation",
+      error: error.message,
+      stack: error.stack,
+    });
   }
 };
 
