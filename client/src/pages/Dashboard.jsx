@@ -31,6 +31,18 @@ const Dashboard = () => {
   const handleViewReservationById = () => {
     navigate("/view-reservations-by-id");
   };
+  const handleDeleteReservationById = () => {
+    navigate("/delete-reservation-by-id");
+  };
+  const handleAddFeedback = () => {
+    navigate("/add-feedback");
+  };
+  const handleUpdateFeedback = () => {
+    navigate("/update-feedback");
+  };
+  const handleViewFeedback = () => {
+    navigate("/view-feedback");
+  };
 
   return (
     <Box sx={{ textAlign: "center", mt: 10 }}>
@@ -95,6 +107,38 @@ const Dashboard = () => {
         onClick={handleViewReservationById}
       >
         View Reservation By Id
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleDeleteReservationById}
+      >
+        Delete Reservation
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleAddFeedback}
+      >
+        Add Feedback
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleUpdateFeedback}
+      >
+        Update Feedback
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleViewFeedback}
+      >
+        View Feedback
       </Button>
     </Box>
   );

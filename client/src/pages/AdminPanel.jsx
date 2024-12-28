@@ -142,6 +142,9 @@ const AdminPanel = () => {
   const handleViewRouteById = () => {
     navigate("/view-route-by-id");
   };
+  const handleViewAllFeedback = () => {
+    navigate("/view-all-feedback");
+  };
 
   return (
     <Box
@@ -253,6 +256,14 @@ const AdminPanel = () => {
           onClick={handleDeleteRoute}
         >
           Delete Route
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleViewAllFeedback}
+        >
+          View All Feedback
         </Button>
         <Grid container spacing={4}>
           {/* Buses Table */}

@@ -4,21 +4,23 @@ const Bus = require("../models/bus");
 // Add feedback for a specific bus
 exports.addFeedback = async (req, res) => {
   try {
-    const { busId, user, rating, comments } = req.body;
+    const { busId, userId, rating, comments } = req.body;
 
     // Ensure the bus exists
     const bus = await Bus.findById(busId);
     if (!bus) return res.status(404).json({ message: "Bus not found" });
 
-    const newFeedback = new Feedback({ busId, user, rating, comments });
+    const newFeedback = new Feedback({ busId, userId, rating, comments });
     await newFeedback.save();
     res
       .status(201)
       .json({ message: "Feedback added successfully", feedback: newFeedback });
   } catch (error) {
-    res
-      .status(400)
-      .json({ message: "Error adding feedback", error: error.message });
+    res.status(400).json({
+      message: "Error adding feedback",
+      error: error.message,
+      stack: error.stack,
+    });
   }
 };
 
@@ -34,12 +36,10 @@ exports.updateFeedback = async (req, res) => {
     if (!updatedFeedback)
       return res.status(404).json({ message: "Feedback not found" });
 
-    res
-      .status(200)
-      .json({
-        message: "Feedback updated successfully",
-        feedback: updatedFeedback,
-      });
+    res.status(200).json({
+      message: "Feedback updated successfully",
+      feedback: updatedFeedback,
+    });
   } catch (error) {
     res
       .status(400)

@@ -9,14 +9,8 @@ import {
   Alert,
 } from "@mui/material";
 
-const AddReservation = () => {
-  const [formData, setFormData] = useState({
-    userId: "",
-    busId: "",
-    routeId: "",
-    date: "",
-    seatNumber: "",
-  });
+const DeleteReservation = () => {
+  const [reservationId, setReservationId] = useState("");
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
@@ -24,22 +18,23 @@ const AddReservation = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setReservationId(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/reservations", formData);
+      const response = await axios.delete(`/api/reservations/${reservationId}`);
       setSnackbar({
         open: true,
-        message: "Reservation added successfully!",
+        message: "Reservation deleted successfully!",
         severity: "success",
       });
+      setReservationId("");
     } catch (error) {
       setSnackbar({
         open: true,
-        message: error.response?.data?.message || "Error adding reservation",
+        message: error.response?.data?.message || "Error deleting reservation",
         severity: "error",
       });
     }
@@ -52,7 +47,7 @@ const AddReservation = () => {
   return (
     <Box
       component="form"
-      onSubmit={handleSubmit}
+      onSubmit={handleDelete}
       sx={{
         maxWidth: 500,
         margin: "0 auto",
@@ -63,29 +58,18 @@ const AddReservation = () => {
       }}
     >
       <Typography variant="h4" component="h1" textAlign="center" gutterBottom>
-        Add Reservation
+        Delete Reservation
       </Typography>
-      {["userId", "busId", "routeId", "date", "seatNumber"].map((field) => (
-        <TextField
-          key={field}
-          label={field.charAt(0).toUpperCase() + field.slice(1)}
-          name={field}
-          type={
-            field === "seatNumber"
-              ? "number"
-              : field === "date"
-              ? "date"
-              : "text"
-          }
-          value={formData[field]}
-          onChange={handleChange}
-          fullWidth
-          required
-          InputLabelProps={field === "date" ? { shrink: true } : {}}
-        />
-      ))}
-      <Button type="submit" variant="contained" color="primary" fullWidth>
-        Add Reservation
+      <TextField
+        label="Reservation ID"
+        name="reservationId"
+        value={reservationId}
+        onChange={handleChange}
+        fullWidth
+        required
+      />
+      <Button type="submit" variant="contained" color="error" fullWidth>
+        Delete Reservation
       </Button>
 
       <Snackbar
@@ -105,4 +89,4 @@ const AddReservation = () => {
   );
 };
 
-export default AddReservation;
+export default DeleteReservation;

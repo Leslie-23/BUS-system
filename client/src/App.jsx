@@ -26,6 +26,11 @@ import ViewRouteById from "./components/ViewRouteById";
 import AddReservation from "./components/AddReservation";
 import ViewAllReservations from "./components/ViewAllReservation";
 import ViewReservationById from "./components/ViewReservationById";
+import DeleteReservation from "./components/DeleteReservation";
+import AddFeedback from "./components/AddFeedback";
+import UpdateFeedback from "./components/UpdateFeedback";
+import ViewAllFeedback from "./components/ViewAllFeedback";
+import ViewFeedback from "./components/ViewFeedback";
 
 const theme = createTheme({
   palette: {
@@ -76,6 +81,14 @@ const App = () => {
           path="/view-reservations-by-id"
           element={<ViewReservationById />}
         />
+        <Route
+          path="/delete-reservation-by-id"
+          element={<DeleteReservation />}
+        />
+        <Route path="/add-feedback" element={<AddFeedback />} />
+        <Route path="/update-feedback" element={<UpdateFeedback />} />
+        <Route path="/view-all-feedback" element={<ViewAllFeedback/>} />
+        <Route path="/view-feedback" element={<ViewFeedback/>} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         {/*unprotected route above. now using a wrapper to secure and ensure the authentication*/}
         <Route
