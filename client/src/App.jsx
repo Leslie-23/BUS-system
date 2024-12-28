@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
 import { green } from "@mui/material/colors";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
@@ -53,7 +54,8 @@ const App = () => {
     // <Router>
     <ThemeProvider theme={theme}>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/profile" element={<Profile />} />
@@ -87,8 +89,8 @@ const App = () => {
         />
         <Route path="/add-feedback" element={<AddFeedback />} />
         <Route path="/update-feedback" element={<UpdateFeedback />} />
-        <Route path="/view-all-feedback" element={<ViewAllFeedback/>} />
-        <Route path="/view-feedback" element={<ViewFeedback/>} />
+        <Route path="/view-all-feedback" element={<ViewAllFeedback />} />
+        <Route path="/view-feedback" element={<ViewFeedback />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         {/*unprotected route above. now using a wrapper to secure and ensure the authentication*/}
         <Route
