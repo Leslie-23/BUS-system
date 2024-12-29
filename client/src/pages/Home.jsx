@@ -17,6 +17,7 @@ import { useTheme } from "@mui/material/styles";
 import { Close as CloseIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import map from "./assets/map.jpg";
+import mapWide from "../assets/bus-vector.jpg";
 import AiMap from "./assets/AiMap.jpg";
 import BusTicket from "./assets/ticket.png";
 
@@ -35,11 +36,19 @@ const Navbar = () => {
         <Toolbar>
           <Typography
             variant="h6"
-            sx={{ flexGrow: 1, cursor: "pointer" }}
+            sx={{
+              flexGrow: 1,
+              cursor: "pointer",
+              fontSize: isSmallScreen ? "1.5rem" : "2rem",
+              lineHeight: 1.5,
+              fontWeight: "bold",
+              letterSpacing: "-0.02rem",
+              textShadow: "0 2px 2px rgba(0, 0, 0, 0.2)",
+            }}
             onClick={() => navigate("/")}
             color="black"
           >
-            BUS System
+            AfriTransit
           </Typography>
           <Button color="inherit" onClick={() => navigate("/login")}>
             Login
@@ -53,7 +62,7 @@ const Navbar = () => {
         open={snackbarOpen}
         autoHideDuration={6000}
         onClose={handleSnackbarClose}
-        message="Welcome to BUS System!"
+        message="Welcome to AfriTransit!"
         action={
           <IconButton
             size="small"
@@ -70,6 +79,72 @@ const Navbar = () => {
 };
 
 // Header Component
+// const Header = () => {
+//   const theme = useTheme();
+//   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+//   return (
+//     <Box
+//       sx={{
+//         height: isSmallScreen ? "40vh" : "60vh",
+//         backgroundSize: "cover",
+//         backgroundPosition: "center",
+//         display: "flex",
+//         alignItems: "center",
+//         justifyContent: "center",
+//         color: "black",
+//         textAlign: "center",
+//         mt: isSmallScreen ? 2 : 16,
+//         px: 2,
+//         py: 2,
+//         // opacity: 0.1,
+//         // zIndex: 10, // Ensure the header appears above other components
+//         // position: "relative",
+//         backgroundImage: `url(${mapWide})`,
+//         backgroundRepeat: "no-repeat",
+//         // backgroundBlendMode: "screen",
+//       }}
+//     >
+//       <Box>
+//         <Typography
+//           variant={isSmallScreen ? "h5" : "h3"}
+//           gutterBottom
+//           color="primary"
+//           sx={{
+//             // font: "bold",
+//             fontSize: isSmallScreen ? "1.5rem" : "2rem",
+//             lineHeight: 1.5,
+//             fontWeight: "bold",
+//             letterSpacing: "-0.02rem",
+//             textShadow: "0 2px 2px rgba(0, 0, 0, 0.2)",
+//           }}
+//         >
+//           Transform Your Bus Travel
+//           <Typography sx={{ backgroundColor: "yellow" }}>
+//             with AI-powered scheduling, real-time tracking, and seamless
+//             ticketing.
+//           </Typography>
+//         </Typography>
+//         {/* <Typography
+//           variant={isSmallScreen ? "body1" : "h5"}
+//           color="black"
+//           sx={{ backgroundColor: "green", p: 1.5, borderRadius: 3 }}
+//         >
+//           Real-time tracking, AI-powered scheduling, and seamless ticketing
+//         </Typography> */}
+//         <Button
+//           variant="contained"
+//           color="primary"
+//           size="large"
+//           sx={{ mt: 3, fontSize: isSmallScreen ? "0.8rem" : "1rem" }}
+//         >
+//           Get Started
+//         </Button>
+//       </Box>
+//     </Box>
+//   );
+// };
+
 const Header = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -77,28 +152,63 @@ const Header = () => {
   return (
     <Box
       sx={{
-        height: isSmallScreen ? "40vh" : "60vh",
+        minHeight: isSmallScreen ? "50vh" : "60vh",
+        backgroundImage: `url(${mapWide})`,
+        // backgroundColor: "lightgray", // Debug solid color
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "black",
         textAlign: "center",
-        mt: isSmallScreen ? 8 : 10,
+        color: "black",
+        mt: isSmallScreen ? 2 : 16,
         px: 2,
+        py: 2,
+        position: "relative",
+        zIndex: 10,
+        overflow: "hidden",
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          //   backgroundColor: "rgba(255, 255, 255, 0.6)",
+          zIndex: 1,
+        }}
+      />
+      <Box sx={{ zIndex: 2 }}>
         <Typography
-          variant={isSmallScreen ? "h5" : "h4"}
+          variant={isSmallScreen ? "h5" : "h3"}
           gutterBottom
           color="primary"
+          sx={{
+            fontSize: isSmallScreen ? "1.5rem" : "2rem",
+            lineHeight: 1.5,
+            fontWeight: "bold",
+            letterSpacing: "-0.02rem",
+            textShadow: "0 2px 2px rgba(0, 0, 0, 0.2)",
+          }}
         >
           Transform Your Bus Travel
         </Typography>
-        <Typography variant={isSmallScreen ? "body1" : "h5"}>
-          Real-time tracking, AI-powered scheduling, and seamless ticketing
+        <Typography
+          variant={isSmallScreen ? "body1" : "h5"}
+          color="black"
+          sx={{
+            mt: 2,
+            backgroundColor: "yellow",
+            p: 1,
+            borderRadius: 1,
+          }}
+        >
+          with AI-powered scheduling, real-time tracking, and seamless
+          ticketing.
         </Typography>
         <Button
           variant="contained"
