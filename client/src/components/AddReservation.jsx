@@ -29,8 +29,12 @@ const AddReservation = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const userId = localStorage.getItem("userId");
     try {
-      const response = await axios.post("/api/reservations", formData);
+      const response = await axios.post(
+        `http://localhost:5000/api/add/reservation/${userId}`,
+        formData
+      );
       setSnackbar({
         open: true,
         message: "Reservation added successfully!",
