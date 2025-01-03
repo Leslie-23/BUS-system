@@ -10,7 +10,7 @@ const BuyTicket = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/tickets", {
+      const { data } = await axios.post("https://localhost:5000/api/tickets", {
         seatNumber,
         price,
         bus: busId,

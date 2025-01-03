@@ -145,6 +145,9 @@ const AdminPanel = () => {
   const handleViewAllFeedback = () => {
     navigate("/view-all-feedback");
   };
+  const handleManageTickets = () => {
+    navigate("/manage-tickets");
+  };
 
   return (
     <Box
@@ -264,6 +267,14 @@ const AdminPanel = () => {
           onClick={handleViewAllFeedback}
         >
           View All Feedback
+        </Button>
+        <Button
+          variant="contained"
+          sx={{ mt: 2 }}
+          color="primary"
+          onClick={handleManageTickets}
+        >
+          Manage Tickets
         </Button>
         <Grid container spacing={4}>
           {/* Buses Table */}

@@ -32,6 +32,8 @@ import AddFeedback from "./components/AddFeedback";
 import UpdateFeedback from "./components/UpdateFeedback";
 import ViewAllFeedback from "./components/ViewAllFeedback";
 import ViewFeedback from "./components/ViewFeedback";
+import BuyTicket from "./components/BuyTicket";
+import ManageTickets from "./components/ManageTicket";
 
 const theme = createTheme({
   palette: {
@@ -91,6 +93,8 @@ const App = () => {
         <Route path="/update-feedback" element={<UpdateFeedback />} />
         <Route path="/view-all-feedback" element={<ViewAllFeedback />} />
         <Route path="/view-feedback" element={<ViewFeedback />} />
+        <Route path="/buy-ticket" element={<BuyTicket />} />
+        <Route path="/manage-tickets" element={<ManageTickets />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         {/*unprotected route above. now using a wrapper to secure and ensure the authentication*/}
         <Route

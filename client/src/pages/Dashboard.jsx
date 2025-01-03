@@ -43,6 +43,9 @@ const Dashboard = () => {
   const handleViewFeedback = () => {
     navigate("/view-feedback");
   };
+  const handleBuyTicket = () => {
+    navigate("/buy-ticket");
+  };
 
   return (
     <Box sx={{ textAlign: "center", mt: 10 }}>
@@ -139,6 +142,14 @@ const Dashboard = () => {
         onClick={handleViewFeedback}
       >
         View Feedback
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ mt: 2 }}
+        color="primary"
+        onClick={handleBuyTicket}
+      >
+        Buy Ticket
       </Button>
     </Box>
   );
