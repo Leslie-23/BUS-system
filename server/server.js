@@ -7,6 +7,7 @@ const userAdminRoutes = require("./routes/user-routes");
 const busRoutes = require("./routes/bus-routes");
 const routeRoutes = require("./routes/route-routes");
 const reservationRoutes = require("./routes/reservation-routes");
+const ticketRoutes = require("./routes/ticket-routes");
 const feedbackRoutes = require("./routes/feedback-routes");
 const uploadRouter = require("./routes/upload-routes");
 const cors = require("cors");
@@ -39,6 +40,7 @@ app.use("/api", busRoutes);
 app.use("/api", routeRoutes);
 app.use("/api", reservationRoutes);
 app.use("/api", feedbackRoutes);
+app.use("/api", ticketRoutes);
 
 // static route for file upload
 app.use("/uploads", uploadRouter);
