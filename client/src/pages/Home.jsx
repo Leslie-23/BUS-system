@@ -184,9 +184,7 @@ const Home = () => (
     <Box>
       <MapComponent />
     </Box>
-    <Box>
-      <MapWithDirections />
-    </Box>
+    <Box>{/* <MapWithDirections /> */}</Box>
     <Footer />
   </Box>
 );
